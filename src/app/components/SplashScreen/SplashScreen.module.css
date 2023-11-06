@@ -1,0 +1,32 @@
+/* Stylesheet for Splashscreen */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;  /* To prevent scrolling during splash screen */
+    scroll-behavior: smooth;
+  }
+  
+  .splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: black;  /* Fallback for any empty spaces */
+  }
+  
+  /* Styles to make the splash screen video take the full viewport */
+  .splash-screen video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+  }
