@@ -1,1 +1,154 @@
 /* stylesheet for the Hero section */
+.hero-container {
+    position: relative; /* this keeps backgroundvideos ending frame nicely centered */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    height: 100vh; /* we want the hero section to take 100% viewporth height*/
+    padding-bottom: 30px;
+    margin-bottom: 40px;
+}
+
+.overlay-content {
+    z-index: 2; /* Positioned above the video */
+    text-align: center;
+}
+
+.overlay-content h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #f9004d;
+
+}
+
+@keyframes typewriter {
+    0% {
+      width: 0;
+    }
+    99.99% {
+      border-right-color: white; /* Maintain the cursor color till the very end */
+    }
+    100% {
+      width: 100%;
+      border-right-color: transparent; /* Hide the cursor right after the last character */
+    }
+  }
+
+.typewriter-h1 {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    border-right: .15em solid white;
+    white-space: nowrap;
+    animation: typewriter 2s steps(21, end) forwards;
+  }
+  
+  .typewriter-h2 {
+    display: inline-block;
+    overflow: hidden;
+    visibility: hidden;
+    vertical-align: top;
+    border-right: .15em solid  #f9004d;
+    white-space: nowrap;
+    animation: typewriter 1s steps(21, end) forwards, fadeIn 0.01s 2.5s forwards;
+    animation-delay: 2.5s; 
+  }
+
+  .scrollDownButton svg{
+    width: 60px;
+    height: auto;
+    visibility: hidden;
+    animation: fadeIn 1s 4s forwards;
+    margin-bottom: 30px;
+    transition: 0.3s ease;
+  }
+
+  .scrollDownButton svg:hover{
+    transition: 0.3s ease;
+    transform: scale(1.1);
+  }
+
+  .social-media-icons{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    visibility: hidden;
+    transform: translateY(300px);
+    gap:40px;
+    scale: 0.3;
+    animation: fadeIn 1s 4s forwards;
+  }
+
+  .social-media-icons svg .outline{
+    fill:white;
+  }
+
+  .social-media-icons svg .innerBackground{
+    fill:transparent;
+  }
+
+  .social-media-icons svg{
+    transition: 0.3s ease;
+  }
+
+  .social-media-icons svg:hover{
+    transition: 0.3s ease;
+    transform: translateY(-17px);
+  }
+
+  /* optimisation for smaller screen, because of the animations we have to use nowrap */
+
+  @keyframes fadeIn {
+    to {
+      visibility: visible;
+    }
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .hero-container h1{
+      font-size:68px;
+    }
+
+    .hero-container h2{
+      font-size:26px;
+    }
+
+    .social-media-icons svg{
+      transform: scale(0.7);
+      margin-bottom: 20px;
+    }
+  }
+
+  @media only screen and (max-width: 720px) {
+    .hero-container h1{
+      font-size:48px;
+    }
+
+    .hero-container h2{
+      font-size:20px;
+    }
+
+    .social-media-icons svg{
+      margin-bottom: 50px;
+    }
+  }
+
+  @media only screen and (max-width: 550px) {
+    .hero-container h1{
+      font-size:34px;
+    }
+
+    .hero-container h2{
+      font-size:14px;
+    }
+
+    .social-media-icons svg{
+      margin-bottom: 100px;
+    }
+
+    .scrollDownButton svg  {
+      transform: scale(0.7);
+  }
+
+  }
