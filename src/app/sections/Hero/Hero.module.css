@@ -1,5 +1,5 @@
 /* stylesheet for the Hero section */
-.hero-container {
+.heroContainer {
     position: relative; /* this keeps backgroundvideos ending frame nicely centered */
     display: flex;
     justify-content: center;
@@ -10,12 +10,12 @@
     margin-bottom: 40px;
 }
 
-.overlay-content {
+.overlayContent {
     z-index: 2; /* Positioned above the video */
     text-align: center;
 }
 
-.overlay-content h2 {
+.overlayContent h2 {
     margin-top: 20px;
     margin-bottom: 20px;
     color: #f9004d;
@@ -35,7 +35,7 @@
     }
   }
 
-.typewriter-h1 {
+.typewriterH1 {
     display: inline-block;
     overflow: hidden;
     vertical-align: top;
@@ -44,7 +44,7 @@
     animation: typewriter 2s steps(21, end) forwards;
   }
   
-  .typewriter-h2 {
+  .typewriterH2 {
     display: inline-block;
     overflow: hidden;
     visibility: hidden;
@@ -69,7 +69,7 @@
     transform: scale(1.1);
   }
 
-  .social-media-icons{
+  .socialMediaIcons{
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -80,19 +80,19 @@
     animation: fadeIn 1s 4s forwards;
   }
 
-  .social-media-icons svg .outline{
+  .socialMediaIcons svg .outline{
     fill:white;
   }
 
-  .social-media-icons svg .innerBackground{
+  .socialMediaIcons svg .innerBackground{
     fill:transparent;
   }
 
-  .social-media-icons svg{
+  .socialMediaIcons svg{
     transition: 0.3s ease;
   }
 
-  .social-media-icons svg:hover{
+  .socialMediaIcons svg:hover{
     transition: 0.3s ease;
     transform: translateY(-17px);
   }
@@ -106,44 +106,44 @@
   }
 
   @media only screen and (max-width: 1000px) {
-    .hero-container h1{
+    .heroContainer h1{
       font-size:68px;
     }
 
-    .hero-container h2{
+    .heroContainer h2{
       font-size:26px;
     }
 
-    .social-media-icons svg{
+    .socialMediaIcons svg{
       transform: scale(0.7);
       margin-bottom: 20px;
     }
   }
 
   @media only screen and (max-width: 720px) {
-    .hero-container h1{
+    .heroContainer h1{
       font-size:48px;
     }
 
-    .hero-container h2{
+    .heroContainer h2{
       font-size:20px;
     }
 
-    .social-media-icons svg{
+    .socialMediaIcons svg{
       margin-bottom: 50px;
     }
   }
 
   @media only screen and (max-width: 550px) {
-    .hero-container h1{
+    .heroContainer h1{
       font-size:34px;
     }
 
-    .hero-container h2{
+    .heroContainer h2{
       font-size:14px;
     }
 
-    .social-media-icons svg{
+    .socialMediaIcons svg{
       margin-bottom: 100px;
     }
 
