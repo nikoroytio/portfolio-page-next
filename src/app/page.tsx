@@ -1,95 +1,46 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+import React, { useState, useEffect } from 'react';
+import SplashScreen from "./components/SplashScreen/index"; 
+/* import Header from '../sections/Header'; */
+import Hero from "./sections/Hero/index";
+/* import About from "../sections/About";
+import Projects from "../sections/Projects";
+import Testimonials from '../sections/Testimonials';
+import ContactUs from '../sections/ContactUs';
+import Footer from '../sections/Footer';
+ */
+const Home: React.FC = () => {
+  const [showSplash, setShowSplash] = useState(true);
+  const [showSection, setShowSection] = useState(false);
 
-export default function Home() {
+  const handleScrollDown = () => {
+    setShowSection(true);
+  };
+
+  // Mimic componentDidMount lifecycle to handle the splash screen
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSplash(false);
+    }, 1500); 
+    return () => clearTimeout(timer); // Cleanup the timer on component unmount
+  }, []);
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <div className="App">
+      {showSplash ? (
+        <SplashScreen onFinished={() => setShowSplash(false)} />
+      ) : (
+        <>
+          {/* {showSection && <Header />} */}
+          <Hero onScrollDown={handleScrollDown} />
+          {/* {showSection && <About />}
+          {showSection && <Projects />}
+          {showSection && <Testimonials />}
+          {showSection && <ContactUs />}
+          {showSection && <Footer />} */}
+        </>
+      )}
+    </div>
+  );
+};
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
+export default Home;
